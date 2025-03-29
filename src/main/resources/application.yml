@@ -47,6 +47,8 @@ management:
   endpoint:
     health:
       show-details: always  # Provides detailed health info
+  security:
+     enabled:false
 
 eureka:
   client:
