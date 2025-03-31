@@ -28,7 +28,7 @@ public class SecurityConfig {
 	
 	  @Bean
 	    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-	        http.csrf(AbstractHttpConfigurer::disable)
+	        http.csrf(csrf -> csrf.disable())
 	            .authorizeHttpRequests(auth -> auth.anyRequest().permitAll()) // Allow all requests
 	            .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
 	            .formLogin(AbstractHttpConfigurer::disable) // Disable login form
@@ -42,44 +42,7 @@ public class SecurityConfig {
 	        return new BCryptPasswordEncoder();
 	    }
 	    
-	    
-	    
-//	private final JwtAuthFilter jwtAuthFilter;
-//
-//	public SecurityConfig(JwtAuthFilter jwtAuthFilter) {
-//		this.jwtAuthFilter = jwtAuthFilter;
-//	}
-//
-////    @Bean
-////    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-////        http
-////            .authorizeRequests()
-////                .anyRequest().permitAll() // Allow all requests
-////            .and()
-////            .csrf().disable(); // Disable CSRF protection
-////        return http.build();
-////    
-////}
-//
-//	@Bean
-//	public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-//		http.csrf(AbstractHttpConfigurer::disable)
-//				.authorizeHttpRequests(
-//						auth -> auth.requestMatchers("/users/**", "/actuator/**", "/swagger-ui/**", "/v3/api-docs/**")
-//								.permitAll()
-//								/**.anyRequest().authenticated()**/
-//								)
-//				.sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
-//		// .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class);
-//
-//		return http.build();
-//	}
-//
-//	@Bean
-//	public PasswordEncoder passwordEncoder() {
-//		return new BCryptPasswordEncoder();
-//	}
-
+	 
 
 
 }
