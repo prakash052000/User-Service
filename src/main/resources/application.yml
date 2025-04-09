@@ -5,7 +5,7 @@ server:
 
 spring:
   application:
-    name:  USER-SERVICE  # Ensure consistent lowercase name
+    name:  user-service  # Ensure consistent lowercase name
 
   cloud:
     compatibility-verifier:
